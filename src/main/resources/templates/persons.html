@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{main}">
+<head>
+    <title>Person List</title>
+</head>
+<body>
+<main layout:fragment="content">
+    <h1>Person List</h1>
+    <table class="table table-striped table-hover">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Gender</th>
+            <th>Street</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Zip</th>
+        </tr>
+        <tr th:each="person : ${people}">
+            <td th:text="${person.firstName}"></td>
+            <td th:text="${person.lastName}"></td>
+            <td th:text="${person.gender}"></td>
+            <td th:text="${person.address.street}"></td>
+            <td th:text="${person.address.city}"></td>
+            <td th:text="${person.address.state}"></td>
+            <td th:text="${person.address.zip}"></td>
+        </tr>
+    </table>
+</main>
+</body>
+</html>
